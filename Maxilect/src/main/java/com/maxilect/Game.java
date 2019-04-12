@@ -31,15 +31,18 @@ public class Game {
                 userWords = new ArrayList<>();
                 usersPalindrom.put(user, userWords);
             }
-            String reverse = new StringBuilder(word)
+
+            String test = word.replaceAll(" ", "");
+            String reverse = new StringBuilder(test)
                             .reverse()
                             .toString();
+
             long score = 0;
-            if (reverse.equals(word)) {
-                score = word.length();
-                if (!userWords.contains(word)) {
+            if (reverse.equalsIgnoreCase(test)) {
+                score = test.length();
+                if (!userWords.contains(test)) {
                     scoreRepository.update(user.getName(), score);
-                    userWords.add(word);
+                    userWords.add(test);
                     usersPalindrom.put(user, userWords);
                 }
             }
