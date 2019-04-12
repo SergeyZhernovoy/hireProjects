@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>+Библиотека</title>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type = "text/javascript" src="js/myscript.js"></script>
+    <link href="css/style.css" rel="stylesheet"></link>
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+    <link href="css/grayscale.min.css" rel="stylesheet"></link>
+    <script type = "text/javascript" src="js/grayscale.js"></script>
+    <!-- arcticModal -->
+    <script src="js/arcticmodal/jquery.arcticmodal-0.3.min.js"></script>
+    <link rel="stylesheet" href="js/arcticmodal/jquery.arcticmodal-0.3.css"></link>
+
+    <!-- arcticModal theme -->
+    <link rel="stylesheet" href="js/arcticmodal/themes/dark.css"></link>
+    <style id="generatedStyle" type="text/css"></style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h2>Сервисы</h2>
+            <div class="container">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a data-toggle="tab" href="#menu1">Полки</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Свои книги</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Чужие книги</a></li>
+                    <li><a data-toggle="tab" href="#menu4">Запросы на чтение</a></li>
+                    <li><a data-toggle="tab" href="#menu5">Чтение</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-section intro">
+        <div class="tab-content">
+
+            <div id="menu1" class="tab-pane fade in active">
+                <div class="container">
+
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <div class="auth-box">
+                                    <h4 align="left">Создание полки</h4>
+                                    <form>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                                            <input id="shelf" type="text" class="form-control" name="shelf_field" placeholder="Название полки" ></input>
+                                        </div>
+                                        <button id = "btn-add-shelf" type="button" class="btn btn-success" >Добавить</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </div>
+
+
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Название полки</th>
+                            <th>Удалить</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody_shelf">
+                        <tr>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="menu2" class="tab-pane fade">
+                <div class="container">
+
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <div class="auth-box">
+                                    <h4 align="left">Добавление книги</h4>
+                                    <form enctype="multipart/form-data" id="fileUploadForm">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-subtitles"></i></span>
+                                            <input id="book_title" type="text" class="form-control" name="name" placeholder="Название книги" ></input>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+                                            <input id="book_author" type="text" class="form-control" name="author" placeholder="Автор книги" ></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <select id="shelf_select-btn" class="form-control" name="shelfId" >
+                                            </select>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-save-file"></i></span>
+                                            <!--оставил только pdf файлы-->
+                                            <input id="book_file" type="file" accept=".pdf" class="form-control" name="file" placeholder="Файл книги" ></input>
+                                        </div>
+                                        <button id = "btn-add-book" type="submit" class="btn btn-success">Добавить</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Название книги</th>
+                            <th>Автор</th>
+                            <th>Полка</th>
+                            <th>Владелец</th>
+                            <th>Изменить полку</th>
+                            <th>Читать</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody_book">
+                        <tr>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+            <div id="menu3" class="tab-pane fade">
+                <div class="container">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <div class="auth-box">
+                                    <h4 align="left">Поиск книг по разделам</h4>
+                                    <form>
+                                        <div class="form-group">
+                                            <select id="shelf_select-btn2" class="form-control" name="shelfId" >
+                                            </select>
+                                        </div>
+                                        <button id = "btn-search-book" type="button" class="btn btn-info"><span class=" glyphicon glyphicon-search"></span>Поиск</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Название книги</th>
+                            <th>Автор</th>
+                            <th>Запрос на чтение</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody_request_book">
+                        <tr>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+            <div id="menu4" class="tab-pane fade">
+                <div class="container">
+                    <div class="alert alert-info">
+                        <strong>Info!</strong>                   Запросы на чтение
+                        <button id = "btn-request-view" type="button" class="btn btn-info"><span class=" glyphicon glyphicon-search"></span>Показать запросы</button>
+                    </div>
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Название книги</th>
+                            <th>Автор</th>
+                            <th>Комментарий запроса</th>
+                            <th>Ответ</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody_response">
+                        <tr>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="menu5" class="tab-pane fade">
+                <div class="container ">
+                    <div class="row">
+                            <div class="jumbotron">
+                                <h1>Читалка</h1>
+                                <div class="container">
+                                    <div class="container" id="content_book">
+
+                                    </div>
+                                    <ul class="pager">
+                                        <li class="btn-back"><a id="back">Назад</a></li>
+                                        <li class="btn-forward"><a id="forward">Вперёд</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <div class="box-modal" id="changeShelf">
+            <select id="shelf_select-btn3" class="form-control" name="shelfId" >
+            </select>
+            <button type="button" class="btn btn-success arcticmodal-close"><span class="glyphicon glyphicon-tag"></span> Обновить</button>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <div class="box-modal" id="requestBook">
+            <input id="requestMessage" type="text" class="form-control"  placeholder="Напишите сообщение" ></input>
+            <button type="button" class="btn btn-success arcticmodal-close"><span class="glyphicon glyphicon-tint"></span> Хочу почитать</button>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <div class="box-modal" id="responseBook">
+            <input id="answerMessage" type="text" class="form-control"  placeholder="Напишите ответ" ></input>
+            <input id="dateExpired" type="date" class="form-control" >Укажите дату окончания доступа</input>
+            <div class="checkbox">
+                <input type="checkbox" value="" id="enabled">Разрешить читать</input>
+            </div>
+            <button type="button" class="btn btn-success arcticmodal-close"><span class="glyphicon glyphicon-tint"></span>Ответить на запрос</button>
+        </div>
+    </div>
+
+</body>
+</html>
