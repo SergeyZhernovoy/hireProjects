@@ -51,4 +51,8 @@ public class User implements Comparable<User> {
                 ", score=" + score +
                 '}';
     }
+
+
+
+
 }
