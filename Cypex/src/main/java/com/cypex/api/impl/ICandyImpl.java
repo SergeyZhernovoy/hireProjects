@@ -15,12 +15,6 @@ public class ICandyImpl implements ICandy {
     }
 
     @Override
-    public void setCandyFlavour(Flavour flavour) {
-        this.flavour = flavour;
-    }
-
-
-    @Override
     public String toString() {
         return "конфета со вкусом " + flavour.name();
     }
