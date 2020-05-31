@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="true">
+    <property name="log.base" value="./logs"/>
+
+    <appender name="ROOT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.base}/root.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.base}/root.%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
+            <maxFileSize>1GB</maxFileSize>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%date [%thread] %-4relative %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.zaxxer.hikari" level="INFO" additivity="false">
+        <appender-ref ref="ROOT"/>
+    </logger>
+
+    <logger name="com.zaxxer.hikari.HikariConfig" level="DEBUG" additivity="false">
+        <appender-ref ref="ROOT"/>
+    </logger>
+
+    <logger name="org.springframework" level="INFO" additivity="false">
+        <appender-ref ref="ROOT"/>
+    </logger>
+
+    <logger name="ru.crpt" level="INFO" additivity="false">
+        <appender-ref ref="ROOT"/>
+    </logger>
+
+
+    <root level="INFO">
+        <appender-ref ref="ROOT"/>
+    </root>
+</configuration>

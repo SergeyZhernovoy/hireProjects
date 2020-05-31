@@ -1,0 +1,10 @@
+swagger.api:
+  title: CRPT
+  description: crpt
+  version: 1.0.0
+  basepackage: ru.crpt.web
+
+logging.level:
+  org.dbunit: DEBUG
+  root: INFO
+
